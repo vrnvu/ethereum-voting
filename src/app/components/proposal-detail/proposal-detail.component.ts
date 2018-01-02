@@ -32,4 +32,9 @@ export class ProposalDetailComponent implements OnInit {
     this.location.back();
   }
 
+  save(): void {
+    this.proposalService.updateProposal(this.proposal)
+      .subscribe(() => this.goBack());
+  }
+
 }

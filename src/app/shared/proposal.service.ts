@@ -1,14 +1,23 @@
 import { Injectable } from '@angular/core';
-import { PROPOSALS } from '../model/mock-proposals';
 import { Proposal } from '../model/Proposal';
 import {Observable} from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import {MessageService} from './message.service';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable()
 export class ProposalService {
 
-  constructor(private messageService: MessageService) { }
+  private proposalsUrl = 'api/proposals';
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
+  // URL to web api
+
+  constructor(private http: HttpClient,
+              private messageService: MessageService) { }
 
   /*
    of(HEROES) returns an Observable<Hero[]> that emits a single value, the array of mock heroes.
@@ -16,13 +25,48 @@ export class ProposalService {
    that emits a single value, an array of heroes from the body of the HTTP response.
    */
   getProposals(): Observable<Proposal[]> {
-    this.messageService.add('Proposal Service: Fetched all proposals.');
-    return of(PROPOSALS);
+    return this.http.get<Proposal[]>(this.proposalsUrl)
+      .pipe(
+        tap(proposals => this.log('fetched proposals')),
+        catchError(this.handleError('getProposals', [])));
   }
 
   getProposal(id: number): Observable<Proposal> {
-    this.messageService.add('Proposal Service: Feteched proposal id=${id}');
-    return of(PROPOSALS.find(proposal => proposal.id === id));
+    const url = `${this.proposalsUrl}/${id}`;
+    return this.http.get<Proposal>(url).pipe(
+      tap(_ => this.log(`fetched proposal id=${id}`)),
+      catchError(this.handleError<Proposal>(`getProposal id=${id}`))
+    )
   }
 
+  private log(message: string) {
+    this.messageService.add('Proposal Service: ' + message);
+  }
+
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
+
+  updateProposal(proposal: Proposal) {
+    return this.http.put(this.proposalsUrl, proposal, this.httpOptions).pipe(
+      tap(_ => this.log(`updated proposal id=${proposal.id}`)),
+      catchError(this.handleError<any>('updateProposal'))
+    );
+  }
 }
