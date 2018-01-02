@@ -76,4 +76,14 @@ export class ProposalService {
       catchError(this.handleError<Proposal>('addProposal'))
     );
   }
+
+  deleteProposal(proposal: Proposal | number): Observable<Proposal> {
+    const id = typeof proposal === 'number' ? proposal : proposal.id;
+    const url = `${this.proposalsUrl}/${id}`;
+
+    return this.http.delete<Proposal>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted proposal id=${id}`)),
+      catchError(this.handleError<Proposal>('deleteProposal'))
+    );
+  }
 }

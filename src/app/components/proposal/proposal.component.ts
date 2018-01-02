@@ -40,4 +40,13 @@ export class ProposalComponent implements OnInit {
       });
   }
 
+  /*
+  If you neglect to subscribe(), the service will not send the delete request to the server!
+   As a rule, an Observable does nothing until something subscribes!
+   */
+  delete(proposal: Proposal): void {
+    this.proposals = this.proposals.filter(p => p !== proposal);
+    this.proposalService.deleteProposal(proposal).subscribe();
+}
+
 }
