@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './shared/in-memory-data.service';
+import { InMemoryDataService } from './shared/in-memory-data.service';
 // Components
 import { AppComponent } from './app.component';
 import { ProposalComponent } from './components/proposal/proposal.component';
@@ -19,6 +19,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProposalSearchComponent } from './components/proposal-search/proposal-search.component';
 
+// Primeng
 
 @NgModule({
   declarations: [

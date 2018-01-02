@@ -1,11 +1,10 @@
-/* HeroesComponent's private CSS styles */
-.heroes {
+.proposals {
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
-  width: 15em;
+  width: 25em;
 }
-.heroes li {
+.proposals li {
   position: relative;
   cursor: pointer;
   background-color: #EEE;
@@ -15,25 +14,25 @@
   border-radius: 4px;
 }
 
-.heroes li:hover {
+.proposals li:hover {
   color: #607D8B;
   background-color: #DDD;
   left: .1em;
 }
 
-.heroes a {
+.proposals a {
   color: #888;
   text-decoration: none;
   position: relative;
   display: block;
-  width: 250px;
+  width: 350px;
 }
 
-.heroes a:hover {
+.proposals a:hover {
   color:#607D8B;
 }
 
-.heroes .badge {
+.proposals .badge {
   display: inline-block;
   font-size: small;
   color: white;
@@ -53,8 +52,8 @@
 .button {
   background-color: #eee;
   border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
+  padding: 2px 5px;
+  border-radius: 2px;
   cursor: pointer;
   cursor: hand;
   font-family: Arial;
@@ -66,8 +65,17 @@ button:hover {
 
 button.delete {
   position: relative;
-  left: 194px;
-  top: -32px;
+  left: 355px;
+  top: -33px;
   background-color: gray !important;
   color: white;
 }
+
+
+
+
+/*
+Copyright 2017 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/
