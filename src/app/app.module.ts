@@ -18,8 +18,10 @@ import { MessageService } from './shared/message.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProposalSearchComponent } from './components/proposal-search/proposal-search.component';
+import { PieChartViewComponent } from './components/pie-chart-view/pie-chart-view.component';
 
 // Primeng
+import { ChartModule } from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -29,10 +31,12 @@ import { ProposalSearchComponent } from './components/proposal-search/proposal-s
     MessagesComponent,
     DashboardComponent,
     ProposalSearchComponent,
-    AboutComponent
+    AboutComponent,
+    PieChartViewComponent
   ],
   imports: [
     BrowserModule,
+    ChartModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
