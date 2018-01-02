@@ -1,4 +1,4 @@
-<h2>Ethereum proposals</h2>
+<h1>Ethereum proposals</h1>
 
 <div>
   <label>Proposal name:
@@ -13,7 +13,9 @@
 <ul class="proposals">
   <li *ngFor="let proposal of proposals">
     <a routerLink="/detail/{{proposal.id}}">
-      <span class="badge">{{proposal.id}}</span> {{proposal.name}}
+      <span class="badge">{{proposal.id}}</span>
+      <span class="badge-type">{{proposal.category.name.substring(0,3)}}</span>
+      {{proposal.name}}
     </a>
     <button class="delete" title="delete proposal"
             (click)="delete(proposal)">x</button>
