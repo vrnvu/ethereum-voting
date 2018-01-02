@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
 
   getProposals(): void {
     this.proposalService.getProposals()
-      .subscribe(proposals => this.proposals = proposals.slice(1, 5));
+      .subscribe(proposals => this.proposals = proposals.slice(0, 4));
   }
 
 }

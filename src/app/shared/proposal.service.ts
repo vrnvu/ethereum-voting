@@ -36,7 +36,7 @@ export class ProposalService {
     return this.http.get<Proposal>(url).pipe(
       tap(_ => this.log(`fetched proposal id=${id}`)),
       catchError(this.handleError<Proposal>(`getProposal id=${id}`))
-    )
+    );
   }
 
   private log(message: string) {

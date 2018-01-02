@@ -9,6 +9,7 @@ import { InMemoryDataService }  from './shared/in-memory-data.service';
 import { AppComponent } from './app.component';
 import { ProposalComponent } from './components/proposal/proposal.component';
 import { ProposalDetailComponent } from './components/proposal-detail/proposal-detail.component';
+import { AboutComponent } from './components/about/about.component';
 
 // Services, providers are shared instances
 import {ProposalService} from './shared/proposal.service';
@@ -26,7 +27,8 @@ import { ProposalSearchComponent } from './components/proposal-search/proposal-s
     ProposalDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    ProposalSearchComponent
+    ProposalSearchComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
