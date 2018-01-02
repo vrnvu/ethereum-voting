@@ -16,6 +16,7 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { MessageService } from './shared/message.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ProposalSearchComponent } from './components/proposal-search/proposal-search.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     ProposalComponent,
     ProposalDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProposalSearchComponent
   ],
   imports: [
     BrowserModule,

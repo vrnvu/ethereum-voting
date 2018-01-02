@@ -86,4 +86,15 @@ export class ProposalService {
       catchError(this.handleError<Proposal>('deleteProposal'))
     );
   }
+
+  searchProposal(term: String): Observable<Proposal[]> {
+    if (!term.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<Proposal[]>(`api/proposals/?name=${term}`).pipe(
+      tap(_ => this.log(`found proposals matching "${term}"`)),
+      catchError(this.handleError<Proposal[]>('searchProposals', []))
+    );
+  }
 }
