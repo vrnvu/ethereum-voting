@@ -1,11 +1,16 @@
 <div *ngIf="proposal">
   <h2>{{ proposal.name | uppercase }} Details</h2>
-  <div><label>id: </label>{{proposal.id}}</div>
   <div>
     <label>name:
       <input [(ngModel)]="proposal.name" placeholder="name"/>
     </label>
   </div>
+  <div><label>id: </label>{{proposal.id}}</div>
+  <div><span>id: </span>{{proposal.id}}</div>
+  <div><span>description: </span>{{proposal.description}}</div>
+  <div><span>category: </span>{{proposal.category.name}}</div>
+
+
   <button (click)="goBack()">go back</button>
   <button (click)="save()">save</button>
 
