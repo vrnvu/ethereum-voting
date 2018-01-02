@@ -31,4 +31,13 @@ export class ProposalComponent implements OnInit {
       .subscribe(proposals => this.proposals = proposals);
   }
 
+  add(name: String): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.proposalService.addProposal({ name } as Proposal)
+      .subscribe(proposal => {
+        this.proposals.push(proposal);
+      });
+  }
+
 }

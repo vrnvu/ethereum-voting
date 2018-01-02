@@ -1,4 +1,15 @@
 <h2>Ethereum proposals</h2>
+
+<div>
+  <label>Proposal name:
+    <input #proposalName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(proposalName.value); proposalName.value=''">
+    add
+  </button>
+</div>
+
 <ul class="proposals">
   <li *ngFor="let proposal of proposals">
     <a routerLink="/detail/{{proposal.id}}">

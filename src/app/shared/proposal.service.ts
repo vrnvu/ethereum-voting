@@ -69,4 +69,11 @@ export class ProposalService {
       catchError(this.handleError<any>('updateProposal'))
     );
   }
+
+  addProposal(newProposal: Proposal): Observable<Proposal> {
+    return this.http.post<Proposal>(this.proposalsUrl, newProposal, this.httpOptions).pipe(
+      tap((proposal: Proposal) => this.log(`added proposal w/ id=${proposal.id}`)),
+      catchError(this.handleError<Proposal>('addProposal'))
+    );
+  }
 }
