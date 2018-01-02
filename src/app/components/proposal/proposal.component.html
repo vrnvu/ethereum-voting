@@ -1,0 +1,9 @@
+<h2>Ethereum proposals</h2>
+<ul class="proposals">
+  <li *ngFor="let proposal of proposals">
+    <a routerLink="/detail/{{proposal.id}}">
+      <span class="badge">{{proposal.id}}</span> {{proposal.name}}
+    </a>
+  </li>
+</ul>
+
