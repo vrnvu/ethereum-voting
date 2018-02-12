@@ -1,7 +1,8 @@
 <h1>Ethereum proposals</h1>
-
+        <main role="main" class="col-sm-4 blog-main">
+<section>
 <div>
-  <label>Proposal name:
+  <label>Add Proposal name:
     <input #proposalName />
   </label>
   <!-- (click) passes input value to add() and then clears the input -->
@@ -10,15 +11,41 @@
   </button>
 </div>
 
-<ul class="proposals">
-  <li *ngFor="let proposal of proposals">
-    <a routerLink="/detail/{{proposal.id}}">
-      <span class="badge">{{proposal.id}}</span>
-      <span class="badge-type">{{proposal.category.name.substring(0,3)}}</span>
-      {{proposal.name}}
-    </a>
-    <button class="delete" title="delete proposal"
-            (click)="delete(proposal)">x</button>
-  </li>
-</ul>
+<div class="row">
+                <div class="col-md-5 col-sm-5 col-xs-12 gutter">
 
+                    <div class="sales">
+                        <h2>Filter</h2>
+
+                        <div class="btn-group">
+                            <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span>Category:</span> Some category
+                            </button>
+                            <div class="dropdown-menu">
+                                <a >2012</a>
+                                <a >2014</a>
+                                <a >2015</a>
+                                <a >2016</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
+  <li *ngFor="let proposal of proposals">
+    <div class="list-group">
+      <a routerLink="/detail/{{proposal.id}}" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{proposal.name}}</h5>
+          <small class="text-muted">{{proposal.category.name.substring(0,3)}}</small>
+        </div>
+        <p class="mb-1">Proposal short description.</p>
+        <small class="text-muted">{{proposal.id}}</small>
+      </a>
+    </div>
+  </li>
+
+</section>
+
+
+</main>

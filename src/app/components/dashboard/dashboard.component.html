@@ -1,38 +1,27 @@
-<h1>Dashboard</h1>
+<main role="main">
 
-
-<h3>Proposals with most votes</h3>
-
-<div class="grid grid-pad">
-  <a *ngFor="let proposal of proposals" class="col-1-4"
-     routerLink="/detail/{{proposal.id}}">
-    <div class="module proposal">
-      <h4>{{proposal.name}}</h4>
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">{{jumbotron_title}}</h1>
+        <p>{{jumbotron_description}}</p>
+        <p><a class="btn btn-success btn-lg" routerLink="/proposals" role="button">View all proposals &raquo;</a></p>
+      </div>
     </div>
-  </a>
-</div>
 
-<h3>Health proposals</h3>
-
-<div class="grid grid-pad">
-  <a *ngFor="let h of healthProposals" class="col-1-4"
-     routerLink="/detail/{{h.id}}">
-    <div class="module proposal">
-      <h4>{{h.name}}</h4>
+  <div class="container">
+    <div class="row">
+      <a *ngFor="let proposal of proposals" class="col-lg-4">
+        <div class="module proposal">
+          <h2>{{proposal.name}}</h2>
+          <p>Short proposal description. </p>
+          <p><a class="btn btn-primary" routerLink="/detail/{{proposal.id}}" role="button">View details &raquo;</a></p>
+        </div>
+      </a>
     </div>
-  </a>
-</div>
-
-<h3>Social proposals</h3>
-
-<div class="grid grid-pad">
-  <a *ngFor="let proposal of proposals" class="col-1-4"
-     routerLink="/detail/{{proposal.id}}">
-    <div class="module proposal">
-      <h4>{{proposal.name}}</h4>
-    </div>
-  </a>
-</div>
+  </div>
 
 
-<app-proposal-search></app-proposal-search>
+
+
+</main>

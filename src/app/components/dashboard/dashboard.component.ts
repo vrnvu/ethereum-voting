@@ -12,6 +12,9 @@ export class DashboardComponent implements OnInit {
 
   proposals: Proposal[] = [];
   healthProposals: Proposal[] = [];
+  jumbotron_title = 'Democracy on the blockchain';
+  jumbotron_description = 'Blockchain has been touted as everything from the future of finance to the cure to poverty and the only way to' +
+    ' secure land registries. Now it is being pushed as the future of the very democratic process, but can it really work this way?';
 
   constructor(private proposalService: ProposalService) { }
 
@@ -22,7 +25,7 @@ export class DashboardComponent implements OnInit {
 
   getProposals(): void {
     this.proposalService.getProposals()
-      .subscribe(proposals => this.proposals = proposals.slice(0, 4));
+      .subscribe(proposals => this.proposals = proposals.slice(0, 3));
   }
 
 
