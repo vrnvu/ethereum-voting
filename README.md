@@ -1,27 +1,160 @@
-# Eth-scheme
+# Proposal-Scheme
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
+Descentralized voting application, DAPP, using ethereum.
+Proposal-scheme client.
 
-## Development server
+## Table of content
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- [Getting Started](#getting-started)
+    - [Built With](#built-with)
+    - [Prerequisites](#built-with)
+    - [installing](#installing)
+    - [For OSX and Linux](#for-osx-and-linux)
+    - [Testing](#running-the-tests)
+- [Run Dapp](#run-dapp)
+    - [Loval Development with Truffle](#run-dapp)
+    - [Local Development with TestRPC](#local-development-with-testrpc)
+    - [Deployment in testnet or mainnet](#deployment)
+- [Contributing](cContributing)
+- [Credits](#credits)
+- [License](#license)
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+# Getting Started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+<These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.>
 
-## Running unit tests
+## Built With
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<Frameworks used>
+  
+* [Angular2](https://angular.io/) - The web framework used
+* [Web3j](https://github.com/web3j/web3j) - Integration with Ethereum client
+* [Truffle](http://truffleframework.com/) - The most popular development framework for Ethereum
+* [Bootstrap](https://getbootstrap.com/) - Bootstrap is an open source toolkit for developing with HTML, CSS, and JS.
 
-## Running end-to-end tests
+## Prerequisites
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+<What things you need to install the software and how to install them>
 
-## Further help
+Check first for at least node 9.2.0, npm 5.5.1:
+```
+nodejs -v
+npm -v
+```
+npm is bundled with Node.js, so to install npm you only need to install Node.js on your Ubuntu/Debian
+```
+curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+## Installing
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. Click **Star** on this repo near the top-right corner of this web page (if you want to).
+2. Fork this repo by clicking **Fork** button in top-right corner of this web page. Continue to follow instruction steps from your own proposal-scheme repo.
+3. Clone your own "proposal-scheme" repo. Copy the link from the "Clone or download" button near the top right of this repo's home page.
+4. The rest of these steps must be done from your machine's command line. See the [Run Dapp](#run-dapp) or [Deployment](#deployment) section to continue if you already have the repository installed.
+
+## For OSX and Linux
+
+1. From the desired directory you wish to copy the "proposal-scheme" folder with source files to.
+    ```
+    git clone {paste your own repo link here}
+    ```
+    NOTE: Please use `develop` branch for contributing.
+    ```
+    git clone -b develop {paste your own repo link here}
+    ```
+2. Change directories to proposal-scheme:
+    ```
+    cd proposal-scheme
+    ```
+3. Make sure you have the [pre-requisites](#Prerequisites) [NodeJS](https://nodejs.org/) (v8.4.0 or higher) and [npm](https://www.npmjs.com/) (5.4.1 or higher) installed.
+
+4. Install dependencies from within proposal-scheme directory:
+    ```
+    npm install
+    ```
+5. That is it, you are now ready to run the proposal-scheme dapp! Head to the [Run dapp](#run-dapp) section for further instructions.
+
+
+# Run Dapp
+
+For local node using truffle follow these steps.
+
+```
+truffle develop
+```
+Inside the truffle console write,
+```
+compile
+migrate
+```
+Run the webpack server for front-end hot reloading (outside the development console). Smart contract changes must be manually recompiled and migrated.
+
+ Serves the scheme front-end on http://localhost:4200
+ ```
+ npm start
+```
+
+If port already in use error run
+```
+sudo lsof -t -i tcp:4200 | xargs kill -9
+```
+
+## Running the tests
+
+TODO: Add testing coverage
+
+```
+truffle test
+```
+
+## Local Development with TestRPC
+
+Change your environment variable in truffle.js to your desired host and port.
+
+```typescript
+  networks: {
+    development: {
+      host: 'localhost',
+      port: 8545,
+      network_id: '*' // Match any network id
+    }
+```
+In a new terminal execute testrpc
+```
+testrpc
+```
+Recompile and migrate your truffle contracts to this development node
+```
+truffle compile
+```
+```
+truffle migrate
+```
+Start your client.
+
+## Deployment
+
+TODO: infura coverage
+
+<Additional notes about deploying a production instance on a live system, testnet or mainet>
+
+
+# Contributing
+
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
+
+
+# Credits
+
+Arnau Díaz. diazarnau@gmail.com 
+
+# License
+
+MIT
