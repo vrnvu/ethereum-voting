@@ -5,7 +5,6 @@ import "./Owned.sol";
 
 contract Voting is Owned {
 
-  // State
   enum State {
     SETUP, SIGNUP, VOTE, FINISHED
   }
@@ -26,9 +25,9 @@ contract Voting is Owned {
   uint[] private votes;
   address[] public listParticipants;
 
-  mapping (address => bool) public canRegister;
-  mapping (address => bool) public hasVoted;
-  mapping (address => bool) public hasRegistered;
+  mapping(address => bool) public canRegister;
+  mapping(address => bool) public hasVoted;
+  mapping(address => bool) public hasRegistered;
 
   function Voting() public {
     state = State.SETUP;
@@ -38,48 +37,48 @@ contract Voting is Owned {
     question = "Question not setted yet. SETUP STAGE.";
   }
 
-  function setParticipants(address[] addresses) inState (State.SETUP) public onlyOwner {
+  function setParticipants(address[] addresses) inState(State.SETUP) public onlyOwner {
     require(addresses.length > 0);
 
     numberOfParticipants = addresses.length;
 
-    for(uint i = 0; i < numberOfParticipants; i++) {
+    for (uint i = 0; i < numberOfParticipants; i++) {
       canRegister[addresses[i]] = true;
       listParticipants.push(addresses[i]);
     }
   }
 
   // Payable?,
-  function setStageToSignUp(string setQuestion) inState (State.SETUP) public onlyOwner {
+  function setStateToSignUp(string setQuestion) inState(State.SETUP) public onlyOwner {
     // Timers?
     require(numberOfParticipants > 0);
     state = State.SIGNUP;
     question = setQuestion;
   }
 
-  function register() inState (State.SIGNUP) public {
+  function register() inState(State.SIGNUP) public {
     require(canRegister[msg.sender] && !hasRegistered[msg.sender]);
 
     hasRegistered[msg.sender] = true;
     numberOfRegistered = numberOfRegistered + 1;
   }
 
-  function setStageToVote() inState (State.SIGNUP) public onlyOwner {
+  function setStateToVote() inState(State.SIGNUP) public onlyOwner {
     require(numberOfParticipants == numberOfRegistered);
     state = State.VOTE;
   }
 
-  function castVote(uint vote) inState (State.VOTE) public {
+  function castVote(uint vote) inState(State.VOTE) public {
     require(hasRegistered[msg.sender] && !hasVoted[msg.sender]);
     votes.push(vote);
     hasVoted[msg.sender] = true;
   }
 
-  function closeVoting() inState (State.VOTE) onlyOwner public {
+  function setStateToFinished() inState(State.VOTE) onlyOwner public {
     state = State.FINISHED;
   }
 
-  function tallyResult() inState (State.FINISHED) onlyOwner public {
+  function tallyResult() inState(State.FINISHED) onlyOwner public {
 
     for (uint i = 0; i < votes.length; i++) {
       if (votes[i] == 0) {
@@ -102,7 +101,7 @@ contract Voting is Owned {
     return listParticipants;
   }
 
-  function getResult() inState (State.FINISHED) constant public returns(uint[2]) {
+  function getResult() inState(State.FINISHED) constant public returns (uint[2]) {
     return result;
   }
 

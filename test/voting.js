@@ -28,7 +28,7 @@ contract('Proposal voting staging', function(accounts) {
   let beforestate = await instance.getState();
   assert.equal(beforestate.valueOf(), 0, "SETUP stage.");
 
-  await instance.setStageToSignUp("new question", {from: ownerAccount});
+  await instance.setStateToSignUp("new question", {from: ownerAccount});
 
   let afterstate = await instance.getState();
   assert.equal(afterstate.valueOf(), 1, "SIGNUP stage.");
@@ -38,7 +38,7 @@ contract('Proposal voting staging', function(accounts) {
     let instance = await Voting.deployed();
   // Sometimes instance.field() works other doesn't.
   let question = await instance.question();
-  assert.equal(question.valueOf(), "new question", "Question was updated in setStageToSignUp()");
+  assert.equal(question.valueOf(), "new question", "Question was updated in setStateToSignUp()");
 
 })
 
@@ -51,7 +51,7 @@ contract('Proposal voting staging', function(accounts) {
   let numRegistered = await instance.numberOfRegistered();
   assert.equal(numParticipants.valueOf(),  participants.length, "Number of participants correct.")
   assert.equal(numRegistered.valueOf(),  participants.length, "Number of registred correct.")
-  instance.setStageToVote({from: ownerAccount});
+  instance.setStateToVote({from: ownerAccount});
   let state = await instance.getState();
   assert.equal(state.valueOf(), 2, "State in vote mode.")
 })
@@ -65,7 +65,7 @@ contract('Proposal voting staging', function(accounts) {
 
   it("should finish vote state", async() => {
     let instance = await Voting.deployed();
-  await instance.closeVoting({from: ownerAccount});
+  await instance.setStateToFinished({from: ownerAccount});
   let state = await instance.getState();
   assert.equal(state.valueOf(), 3, "Vote state has being closed.")
 })

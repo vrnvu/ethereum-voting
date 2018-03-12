@@ -27,7 +27,7 @@ library ECCMath {
       (t1, t2, r1, r2) = (t2, t1 - int(q) * t2, r2, r1 - q * r2);
     }
     if (t1 < 0)
-      return (p - uint(-t1));
+      return (p - uint(- t1));
     return uint(t1);
   }
 
@@ -48,7 +48,7 @@ library ECCMath {
     uint bit = 2 ** 255;
     bit = bit;
     assembly {
-      loop:
+      loop :
       jumpi(end, iszero(bit))
       r := mulmod(mulmod(r, r, m), exp(b, iszero(iszero(and(e, bit)))), m)
       r := mulmod(mulmod(r, r, m), exp(b, iszero(iszero(and(e, div(bit, 2))))), m)
@@ -56,7 +56,7 @@ library ECCMath {
       r := mulmod(mulmod(r, r, m), exp(b, iszero(iszero(and(e, div(bit, 8))))), m)
       bit := div(bit, 16)
       jump(loop)
-      end:
+      end :
     }
   }
 
