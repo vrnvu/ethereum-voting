@@ -1,8 +1,6 @@
-# Proposal-Scheme
+# Ethereum-Votimg
 
 Descentralized voting application, DAPP, using ethereum.
-Proposal-scheme client.
-
 ## Table of content
 
 - [Getting Started](#getting-started)
@@ -50,13 +48,13 @@ sudo apt-get install -y nodejs
 ```
 ## Installing
 
-1. Fork this repo by clicking **Fork** button in top-right corner of this web page. Continue to follow instruction steps from your own proposal-scheme repo.
-2. Clone your own "proposal-scheme" repo. Copy the link from the "Clone or download" button near the top right of this repo's home page.
+1. Fork this repo by clicking **Fork** button in top-right corner of this web page. Continue to follow instruction steps from your own ethereum-voting repo.
+2. Clone your own "ethereum-voting" repo. Copy the link from the "Clone or download" button near the top right of this repo's home page.
 3. The rest of these steps must be done from your machine's command line. See the [Run Dapp](#run-dapp) or [Deployment](#deployment) section to continue if you already have the repository installed.
 
 ## For OSX and Linux
 
-1. From the desired directory you wish to copy the "proposal-scheme" folder with source files to.
+1. From the desired directory you wish to copy the "ethereum-voting" folder with source files to.
     ```
     git clone {paste your own repo link here}
     ```
@@ -66,7 +64,7 @@ sudo apt-get install -y nodejs
     ```
 2. Change directories to proposal-scheme:
     ```
-    cd proposal-scheme
+    cd ethereum-voting
     ```
 3. Make sure you have the [pre-requisites](#Prerequisites) [NodeJS](https://nodejs.org/) (v8.4.0 or higher) and [npm](https://www.npmjs.com/) (5.4.1 or higher) installed.
 
