@@ -29,7 +29,7 @@ Proposal-scheme client.
 
 <Frameworks used>
   
-* [Angular2](https://angular.io/) - The web framework used
+* [Angular5](https://angular.io/) - The web framework used
 * [Web3j](https://github.com/web3j/web3j) - Integration with Ethereum client
 * [Truffle](http://truffleframework.com/) - The most popular development framework for Ethereum
 * [Bootstrap](https://getbootstrap.com/) - Bootstrap is an open source toolkit for developing with HTML, CSS, and JS.
@@ -50,10 +50,9 @@ sudo apt-get install -y nodejs
 ```
 ## Installing
 
-1. Click **Star** on this repo near the top-right corner of this web page (if you want to).
-2. Fork this repo by clicking **Fork** button in top-right corner of this web page. Continue to follow instruction steps from your own proposal-scheme repo.
-3. Clone your own "proposal-scheme" repo. Copy the link from the "Clone or download" button near the top right of this repo's home page.
-4. The rest of these steps must be done from your machine's command line. See the [Run Dapp](#run-dapp) or [Deployment](#deployment) section to continue if you already have the repository installed.
+1. Fork this repo by clicking **Fork** button in top-right corner of this web page. Continue to follow instruction steps from your own proposal-scheme repo.
+2. Clone your own "proposal-scheme" repo. Copy the link from the "Clone or download" button near the top right of this repo's home page.
+3. The rest of these steps must be done from your machine's command line. See the [Run Dapp](#run-dapp) or [Deployment](#deployment) section to continue if you already have the repository installed.
 
 ## For OSX and Linux
 
@@ -137,18 +136,7 @@ Start your client.
 
 ## Deployment
 
-TODO: infura coverage
-
-<Additional notes about deploying a production instance on a live system, testnet or mainet>
-
-
-# Contributing
-
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
+You can deploy in infura or other alternatives following their instructions.
 
 
 # Credits
