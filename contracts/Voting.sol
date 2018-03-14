@@ -2,8 +2,12 @@ pragma solidity ^0.4.18;
 
 import "./Secp256k1.sol";
 import "./Owned.sol";
+import "./Set.sol";
 
 contract Voting is Owned {
+
+  // TODO Passing bytes32 is more efficient than strings
+  using Set for Set.Data;
 
   enum State {
     SETUP, SIGNUP, VOTE, FINISHED
@@ -11,18 +15,20 @@ contract Voting is Owned {
 
   State public state;
 
-  modifier inState(State s) {
-    require(state == s);
+  modifier inState(State expected) {
+    require(state == expected);
     _;
   }
 
   uint[2] result;
   uint public numberOfParticipants;
   uint public numberOfRegistered;
-
   string public question;
+  Set.Data domain;
 
   uint[] private votes;
+
+  // Only to test assertion
   address[] public listParticipants;
 
   mapping(address => bool) public canRegister;
@@ -48,30 +54,21 @@ contract Voting is Owned {
     }
   }
 
+
   // Payable?,
-  function setStateToSignUp(string setQuestion) inState(State.SETUP) public onlyOwner {
+  function setStateToSignUp(string setQuestion, uint[] setDomain) inState(State.SETUP) public onlyOwner {
     // Timers?
     require(numberOfParticipants > 0);
     state = State.SIGNUP;
     question = setQuestion;
-  }
-
-  function register() inState(State.SIGNUP) public {
-    require(canRegister[msg.sender] && !hasRegistered[msg.sender]);
-
-    hasRegistered[msg.sender] = true;
-    numberOfRegistered = numberOfRegistered + 1;
+    for(uint i = 0; i < setDomain.length; i++) {
+      require(domain.insert(setDomain[i]));
+    }
   }
 
   function setStateToVote() inState(State.SIGNUP) public onlyOwner {
     require(numberOfParticipants == numberOfRegistered);
     state = State.VOTE;
-  }
-
-  function castVote(uint vote) inState(State.VOTE) public {
-    require(hasRegistered[msg.sender] && !hasVoted[msg.sender]);
-    votes.push(vote);
-    hasVoted[msg.sender] = true;
   }
 
   function setStateToFinished() inState(State.VOTE) onlyOwner public {
@@ -90,6 +87,19 @@ contract Voting is Owned {
     }
   }
 
+  function register() inState(State.SIGNUP) public {
+    require(canRegister[msg.sender] && !hasRegistered[msg.sender]);
+
+    hasRegistered[msg.sender] = true;
+    numberOfRegistered = numberOfRegistered + 1;
+  }
+
+  function castVote(uint vote) inState(State.VOTE) public {
+    require(hasRegistered[msg.sender] && !hasVoted[msg.sender]);
+    votes.push(vote);
+    hasVoted[msg.sender] = true;
+  }
+
   function getState() view public returns (uint) {
     if (state == State.SETUP) return 0;
     if (state == State.SIGNUP) return 1;
@@ -104,5 +114,10 @@ contract Voting is Owned {
   function getResult() inState(State.FINISHED) constant public returns (uint[2]) {
     return result;
   }
+
+  function getDomainSize() constant public returns (uint) {
+    return domain.size();
+  }
+
 
 }

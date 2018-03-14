@@ -10,8 +10,9 @@ function initializeGlobalVariables(accounts) {
 
 contract('Proposal voting staging', function (accounts) {
   let {ownerAccount, participants} = initializeGlobalVariables(accounts);
+  let domain = [0,1];
 
-  it("should initilalize in SETUP state", async () => {
+  it("1) initilalize in SETUP state", async () => {
     let instance = await Voting.deployed();
     let state = await instance.getState({from: ownerAccount});
     assert.equal(state.valueOf(), 0, "Contract initialized at SETUP state.");
@@ -27,12 +28,12 @@ contract('Proposal voting staging', function (accounts) {
     }
   })
 
-  it("should change SETUP to SIGNUP", async () => {
+  it("2) change SETUP to SIGNUP", async () => {
     let instance = await Voting.deployed();
     let beforestate = await instance.getState();
     assert.equal(beforestate.valueOf(), 0, "SETUP stage.");
 
-    await instance.setStateToSignUp("new question", {from: ownerAccount});
+    await instance.setStateToSignUp("new question", domain, {from: ownerAccount});
 
     let afterstate = await instance.getState();
     assert.equal(afterstate.valueOf(), 1, "SIGNUP stage.");
@@ -46,6 +47,14 @@ contract('Proposal voting staging', function (accounts) {
 
   })
 
+
+  it("should have domain size 2", async () => {
+    let instance = await Voting.deployed();
+    // await instance.domain() doesn't work
+    let domain = await instance.getDomainSize();
+    assert.equal(domain.valueOf(), 2, "Domain has been setted in setStateToSignUp()");
+  })
+
   it("should register all aproved participants", async () => {
     let instance = await Voting.deployed();
     for (i = 0; i < participants.length; i++) {
@@ -55,6 +64,11 @@ contract('Proposal voting staging', function (accounts) {
     let numRegistered = await instance.numberOfRegistered();
     assert.equal(numParticipants.valueOf(), participants.length, "Number of participants correct.")
     assert.equal(numRegistered.valueOf(), participants.length, "Number of registred correct.")
+
+  })
+
+  it("3) change SIGNUP to VOTE", async () => {
+    let instance = await Voting.deployed();
     instance.setStateToVote({from: ownerAccount});
     let state = await instance.getState();
     assert.equal(state.valueOf(), 2, "State in vote mode.")
@@ -67,7 +81,7 @@ contract('Proposal voting staging', function (accounts) {
     }
   })
 
-  it("should finish vote state", async () => {
+  it("4) change VOTE to FINISHED", async () => {
     let instance = await Voting.deployed();
     await instance.setStateToFinished({from: ownerAccount});
     let state = await instance.getState();
