@@ -18,6 +18,7 @@ import { MessageService } from './shared/message.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProposalSearchComponent } from './components/proposal-search/proposal-search.component';
+import { ProtocolComponent } from './components/protocol/protocol.component';
 
 // Primeng
 
@@ -29,7 +30,8 @@ import { ProposalSearchComponent } from './components/proposal-search/proposal-s
     MessagesComponent,
     DashboardComponent,
     ProposalSearchComponent,
-    AboutComponent
+    AboutComponent,
+    ProtocolComponent
   ],
   imports: [
     BrowserModule,
