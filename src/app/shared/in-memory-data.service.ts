@@ -23,16 +23,16 @@ const cat3 = {
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const proposals = [
-      { id: 11, name: 'Propose to change env', category: cat1 },
-      { id: 12, name: 'Reduce Polution', category: cat1 },
-      { id: 13, name: 'Pension Funds Approval' , category: cat2 },
-      { id: 14, name: 'Tax Law Approval', category: cat2 },
-      { id: 15, name: 'Global Warming', category: cat3 },
-      { id: 16, name: 'Stop Oil Wars', category: cat0 },
-      { id: 17, name: 'National Elecion', category: cat2 },
-      { id: 18, name: 'Global Warming 2' , category: cat3 },
-      { id: 19, name: 'Tax Law Aproval 2', category: cat2 },
-      { id: 20, name: 'Random Proposition', category: cat0}
+      { id: 11, name: 'Propose to change env', category: cat1, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Cras quis lectus nec sapien sagittis cursus id in diam. Proin congue tellus a magna pellentesque, non sollicitudin risus fringilla.'},
+      { id: 12, name: 'Reduce Polution', category: cat1, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+      { id: 13, name: 'Pension Funds Approval' , category: cat2, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+      { id: 14, name: 'Tax Law Approval', category: cat2, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+      { id: 15, name: 'Global Warming', category: cat3, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+      { id: 16, name: 'Stop Oil Wars', category: cat0, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+      { id: 17, name: 'National Elecion', category: cat2, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+      { id: 18, name: 'Global Warming 2' , category: cat3, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+      { id: 19, name: 'Tax Law Aproval 2', category: cat2, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' },
+      { id: 20, name: 'Random Proposition', category: cat0, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'}
     ];
     return {proposals};
   }
