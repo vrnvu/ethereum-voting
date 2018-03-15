@@ -1,51 +1,23 @@
 <h1>Ethereum proposals</h1>
-        <main role="main" class="col-sm-4 blog-main">
-<section>
-<div>
-  <label>Add Proposal name:
-    <input #proposalName />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(proposalName.value); proposalName.value=''">
-    add
-  </button>
-</div>
 
-<div class="row">
-                <div class="col-md-5 col-sm-5 col-xs-12 gutter">
 
-                    <div class="sales">
-                        <h2>Filter</h2>
-
-                        <div class="btn-group">
-                            <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span>Category:</span> Some category
-                            </button>
-                            <div class="dropdown-menu">
-                                <a >2012</a>
-                                <a >2014</a>
-                                <a >2015</a>
-                                <a >2016</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-              </div>
-
-  <li *ngFor="let proposal of proposals">
-    <div class="list-group">
-      <a routerLink="/detail/{{proposal.id}}" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">{{proposal.name}}</h5>
-          <small class="text-muted">{{proposal.category.name.substring(0,3)}}</small>
+<li *ngFor="let proposal of proposals">
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="card flex-md-row mb-4 box-shadow h-md-250">
+        <div class="card-body d-flex flex-column align-items-start">
+          <strong class="d-inline-block mb-2 text-primary">{{proposal.category.name}}</strong>
+          <h3 class="mb-0">
+            <a class="text-dark" href="#">{{proposal.name}}</a>
+          </h3>
+          <div class="mb-1 text-muted">{{proposal.id}}</div>
+          <p class="card-text mb-auto">{{proposal.description}}</p>
+          <a routerLink="/detail/{{proposal.id}}">View details</a>
         </div>
-        <p class="mb-1">Proposal short description.</p>
-        <small class="text-muted">{{proposal.id}}</small>
-      </a>
+        <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+      </div>
     </div>
-  </li>
+  </div>
 
-</section>
+</li>
 
-
-</main>
