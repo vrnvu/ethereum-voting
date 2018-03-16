@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProposalService } from '../../shared/proposal.service';
 // Proposal template class
 import {Proposal} from '../../model/Proposal';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-proposal',
@@ -12,6 +13,10 @@ import {Proposal} from '../../model/Proposal';
 export class ProposalComponent implements OnInit {
 
   proposals: Proposal[];
+  proposal_cat0: Proposal[];
+  proposal_cat1: Proposal[];
+  proposal_cat2: Proposal[];
+  proposal_cat3: Proposal[];
 
   constructor(private proposalService: ProposalService) { }
 
@@ -29,6 +34,13 @@ export class ProposalComponent implements OnInit {
   private getProposals(): void {
     this.proposalService.getProposals()
       .subscribe(proposals => this.proposals = proposals);
+
+    this.proposals.forEach( p => {
+      if (p.category.id === 0) {this.proposal_cat0.push(p)}
+      if (p.category.id === 1) {this.proposal_cat1.push(p)}
+      if (p.category.id === 2) {this.proposal_cat2.push(p)}
+      if (p.category.id === 3) {this.proposal_cat3.push(p)}
+    });
   }
 
   add(name: String): void {

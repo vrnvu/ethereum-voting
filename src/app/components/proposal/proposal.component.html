@@ -8,9 +8,8 @@
         <div class="card-body d-flex flex-column align-items-start">
           <strong class="d-inline-block mb-2 text-primary">{{proposal.category.name}}</strong>
           <h3 class="mb-0">
-            <a class="text-dark" href="#">{{proposal.name}}</a>
+            <a routerLink="/detail/{{proposal.id}}">{{proposal.name}}</a>
           </h3>
-          <div class="mb-1 text-muted">{{proposal.id}}</div>
           <p class="card-text mb-auto">{{proposal.description}}</p>
           <a routerLink="/detail/{{proposal.id}}">View details</a>
         </div>

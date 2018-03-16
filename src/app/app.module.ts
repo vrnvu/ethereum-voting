@@ -19,6 +19,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProposalSearchComponent } from './components/proposal-search/proposal-search.component';
 import { ProtocolComponent } from './components/protocol/protocol.component';
+import { ProposalFormComponent } from './components/proposal-form/proposal-form.component';
 
 // Primeng
 
@@ -31,7 +32,8 @@ import { ProtocolComponent } from './components/protocol/protocol.component';
     DashboardComponent,
     ProposalSearchComponent,
     AboutComponent,
-    ProtocolComponent
+    ProtocolComponent,
+    ProposalFormComponent
   ],
   imports: [
     BrowserModule,
