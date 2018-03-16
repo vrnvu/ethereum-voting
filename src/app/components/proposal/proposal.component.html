@@ -1,7 +1,8 @@
-<h1>Ethereum proposals</h1>
 
+<div class="container">
+  <h1 class="display-4">Ethereum proposals</h1>
 
-<li *ngFor="let proposal of proposals">
+ <li *ngFor="let proposal of proposals">
   <div class="row mb-2">
     <div class="col-md-6">
       <div class="card flex-md-row mb-4 box-shadow h-md-250">
@@ -13,10 +14,10 @@
           <p class="card-text mb-auto">{{proposal.description}}</p>
           <a routerLink="/detail/{{proposal.id}}">View details</a>
         </div>
-        <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
       </div>
     </div>
-  </div>
+        <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+      </div>
+ </li>
 
-</li>
-
+</div>
