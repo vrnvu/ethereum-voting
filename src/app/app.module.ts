@@ -20,6 +20,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProposalSearchComponent } from './components/proposal-search/proposal-search.component';
 import { ProtocolComponent } from './components/protocol/protocol.component';
 import { ProposalFormComponent } from './components/proposal-form/proposal-form.component';
+import { RecentUpdatesComponent } from './components/recent-updates/recent-updates.component';
 
 // Primeng
 
@@ -33,7 +34,8 @@ import { ProposalFormComponent } from './components/proposal-form/proposal-form.
     ProposalSearchComponent,
     AboutComponent,
     ProtocolComponent,
-    ProposalFormComponent
+    ProposalFormComponent,
+    RecentUpdatesComponent
   ],
   imports: [
     BrowserModule,
