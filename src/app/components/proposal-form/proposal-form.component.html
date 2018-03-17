@@ -1,30 +1,81 @@
-<div class="col-md-8 order-md-1">
-  <div class="my-3 p-3 bg-white rounded box-shadow">
-    <h6 class="mb-3">Select your vote</h6>
+<div class="container">
+  <hr class="mb-4">
+  <div class="row">
+    <div class="col-md-4 order-md-2 mb-4">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Information</span>
+      </h4>
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Encryption detail 1</h6>
+            <small class="text-muted">Brief description</small>
+          </div>
+          <span class="text-muted">0x0000000000000001</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Encryption detail 2</h6>
+            <small class="text-muted">Brief description</small>
+          </div>
+          <span class="text-muted">0x0000000000000222</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Encryption detail 3</h6>
+            <small class="text-muted">Brief description</small>
+          </div>
+          <span class="text-muted">0x00000555</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between bg-light">
+          <div class="text-success">
+            <h6 class="my-0">Make sure to verify your details</h6>
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Total (USD)</span>
+          <strong>$20</strong>
+        </li>
+      </ul>
 
-    <div class="d-block my-3">
-      <div class="custom-control custom-radio">
-        <input id="voteYes" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-        <label class="custom-control-label" for="voteYes">Yes</label>
-      </div>
-      <div class="custom-control custom-radio">
-        <input id="voteNo" name="paymentMethod" type="radio" class="custom-control-input" required>
-        <label class="custom-control-label" for="voteNo">No</label>
-      </div>
+      <form class="card p-2">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Introduce encryption detail">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-secondary">Validate</button>
+          </div>
+        </div>
+      </form>
     </div>
 
-    <div class="mb-3">
-      <label for="email">Email <span class="text-muted">(Optional)</span></label>
-      <input type="email" class="form-control" id="email" placeholder="you@example.com">
-      <div class="invalid-feedback">
-        Please enter a valid email address for shipping updates.
+    <div class="col-md-8 order-md-1">
+      <div class="my-3 p-3 bg-white rounded box-shadow">
+        <h6 class="mb-3">Select your vote</h6>
+
+        <div class="d-block my-3">
+          <div class="custom-control custom-radio">
+            <input id="voteYes" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+            <label class="custom-control-label" for="voteYes">Yes</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="voteNo" name="paymentMethod" type="radio" class="custom-control-input" required>
+            <label class="custom-control-label" for="voteNo">No</label>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email">Email <span class="text-muted">(Optional)</span></label>
+          <input type="email" class="form-control" id="email" placeholder="you@example.com">
+          <div class="invalid-feedback">
+            Please enter a valid email address for shipping updates.
+          </div>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="sand-email">
+          <label class="custom-control-label" for="sand-email">Send me a confirmation email</label>
+        </div>
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Confirm your vote</button>
       </div>
     </div>
-    <div class="custom-control custom-checkbox">
-      <input type="checkbox" class="custom-control-input" id="sand-email">
-      <label class="custom-control-label" for="sand-email">Send me a confirmation email</label>
-    </div>
-    <hr class="mb-4">
-    <button class="btn btn-primary btn-lg btn-block" type="submit">Confirm your vote</button>
   </div>
-</div>
