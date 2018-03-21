@@ -13,23 +13,19 @@ import { AboutComponent } from './components/about/about.component';
 
 // Services, providers are shared instances
 import {ProposalService} from './shared/proposal.service';
-import { MessagesComponent } from './components/messages/messages.component';
 import { MessageService } from './shared/message.service';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProposalSearchComponent } from './components/proposal-search/proposal-search.component';
 import { ProtocolComponent } from './components/protocol/protocol.component';
 import { ProposalFormComponent } from './components/proposal-form/proposal-form.component';
 import { RecentUpdatesComponent } from './components/recent-updates/recent-updates.component';
 
-// Primeng
-
 @NgModule({
   declarations: [
     AppComponent,
     ProposalComponent,
     ProposalDetailComponent,
-    MessagesComponent,
     DashboardComponent,
     ProposalSearchComponent,
     AboutComponent,
@@ -39,8 +35,8 @@ import { RecentUpdatesComponent } from './components/recent-updates/recent-updat
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
