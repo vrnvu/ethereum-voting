@@ -1,5 +1,10 @@
 # Ethereum-Votimg
 
+![Screenshot0](tfg0.png)
+![Screenshot1](tfg1.png)
+![Screenshot2](tfg2.png)
+
+
 Descentralized voting application, DAPP, using ethereum.
 ## Table of content
 
